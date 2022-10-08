@@ -1,9 +1,9 @@
 import styled from "styled-components"
 
-export default function Movie({ movie }) {
+export default function Movie({ movie}) {
     return (
         <Container>
-            <img src={movie.posterURL} alt={movie.title}/>
+            <img src={movie.posterURL} alt={movie.title} key={movie.id}/>
         </Container>
     )
 }

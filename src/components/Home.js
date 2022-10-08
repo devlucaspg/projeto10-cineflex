@@ -5,6 +5,7 @@ import axios from "axios";
 import Movie from "./Movie";
 
 export default function Home() {
+    
     const [moviesList, setMoviesList] = useState([]);
 
     useEffect(() => {
@@ -15,6 +16,7 @@ export default function Home() {
             setMoviesList(res.data);
             console.log(res.data);
         });
+
         promisse.catch((err) => console.log(err + " - Falha na solicitação. Por favor, tente novamente"));
     }, []);
 
@@ -24,7 +26,7 @@ export default function Home() {
                 <p>Selecione o filme</p>
             </Title>
             <ContainerMovies>
-                {moviesList.map((movie) => <Link to={`/sessao/${movie.id}`} ><Movie key={movie.id} movie={movie} /></Link>)}
+                {moviesList.map((movie) => <Link to={`/sessions/${movie.id}`} key={movie.id}><Movie key={movie.id} movie={movie}/></Link>)}
             </ContainerMovies>
         </>
     );
