@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components"
 import axios from "axios";
 
-export default function Form({id, name, setName, cpf, setCpf, infos, setInfos, all}) {
+export default function Form({id, name, setName, cpf, setCpf, infos, setInfos, all, selectedSeats}) {
 
     const navigate = useNavigate();
 
@@ -31,7 +31,7 @@ export default function Form({id, name, setName, cpf, setCpf, infos, setInfos, a
             alert(err.response.data.message)
         })
 
-        setInfos(infos => [...infos, {movieTitle: all.movie.title, date: all.day.date, hour: all.name, seats: id, name: name, cpf: cpf}]);
+        setInfos(infos => [...infos, {movieTitle: all.movie.title, date: all.day.date, hour: all.name, seats: id, name: name, cpf: cpf, numberSeats: selectedSeats}]);
         
     }
 

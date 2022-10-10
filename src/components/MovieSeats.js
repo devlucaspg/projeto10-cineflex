@@ -62,7 +62,7 @@ export default function MovieSeats({infos, setInfos}) {
                     <p>Indisponível</p>
                 </div>
             </Label>
-            <Form id={id} setId={setId} name={name} setName={setName} cpf={cpf} setCpf={setCpf} all={all} setAll={setAll} infos={infos} setInfos={setInfos}/>
+            <Form id={id} setId={setId} name={name} setName={setName} cpf={cpf} setCpf={setCpf} all={all} setAll={setAll} infos={infos} setInfos={setInfos} selectedSeats={selectedSeats}/>
             <Footer movieInfo={movieInfo} date={date} time={time} />
         </>
     )

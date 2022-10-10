@@ -15,17 +15,17 @@ export default function Success({infos}) {
             <Container>
                 <div>
                     <h1>Filme e sessão</h1>
-                    <p>{infos.movieTitle}</p>
-                    <p>{infos.date} {infos.hour}</p>
+                    <p>{infos[0].movieTitle}</p>
+                    <p>{infos[0].date} - {infos[0].hour}</p>
                 </div>
                 <div>
                     <h1>Ingressos</h1>
-                    {/* {infos.numberSeats.map((seat, index) => <p key={index}> Assento {seat} </p>)} */}
+                    {infos[0].numberSeats.map((seat, index) => <p key={index}> Assento {seat} </p>)}
                 </div>
                 <div>
                     <h1>Comprador</h1>
-                    <p>{infos.name}</p>
-                    <p>{infos.cpf}</p>
+                    <p>Nome: {infos[0].name}</p>
+                    <p>CPF: {infos[0].cpf}</p>
                 </div>
             </Container>
             <Button onClick={() => navigate("/")}>
@@ -63,6 +63,14 @@ const Container = styled.div`
         font-style: normal;
         font-weight: 700;
         font-size: 24px;
+    }
+
+    p {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 22px;
+        line-height: 26px;
     }
 `
 
