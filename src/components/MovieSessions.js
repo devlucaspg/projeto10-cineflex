@@ -15,7 +15,7 @@ export default function MovieSessions() {
         const promisse = axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/movies/${movieId}/showtimes`);
 
         promisse.then((res) => {
-            console.log(res.data)
+            // console.log(res.data)
             setDate(res.data.days);     
             setMovieInfo(res.data);
         });

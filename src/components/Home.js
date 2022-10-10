@@ -14,7 +14,7 @@ export default function Home() {
 
         promisse.then((res) => {
             setMoviesList(res.data);
-            console.log(res.data);
+            // console.log(res.data);
         });
 
         promisse.catch((err) => console.log(err + " - Falha na solicitação. Por favor, tente novamente"));

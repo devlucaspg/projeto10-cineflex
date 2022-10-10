@@ -6,7 +6,7 @@ import Seat from "./Seat";
 import Form from "./Form";
 import Footer from "./Footer";
 
-export default function MovieSeats() {
+export default function MovieSeats({infos, setInfos}) {
 
     const [movieInfo, setMovieInfo] = useState([]);
     const [seats, setSeats] = useState([]);
@@ -16,7 +16,8 @@ export default function MovieSeats() {
     const [id, setId] = useState([]);
     const [name, setName] = useState("");
     const [cpf, setCpf] = useState("");
-    const [form , setForm] = useState([]);
+    const [all, setAll] = useState([]);
+    const [selectedSeats, setSelectedSeats] = useState([]);
 
     const {sessionId} = useParams();
 
@@ -26,6 +27,7 @@ export default function MovieSeats() {
 
         promisse.then((res) => {
             console.log(res.data)
+            setAll(res.data)
             setMovieInfo(res.data.movie);
             setSeats(res.data.seats);
             setTime(res.data.name);
@@ -36,6 +38,7 @@ export default function MovieSeats() {
     }, [sessionId]);
 
     console.log(id)
+    console.log(selectedSeats)
 
     return (
         <>
@@ -43,7 +46,7 @@ export default function MovieSeats() {
                 <p>Selecione o(s) assento(s)</p>
             </Title>
             <Seats>
-                {seats.map((s) => (<Seat seats={s} id={id} setId={setId} key={s.id} />))}
+                {seats.map((s) => (<Seat seats={s} id={id} setId={setId} key={s.id} selectedSeats={selectedSeats} setSelectedSeats={setSelectedSeats} />))}
             </Seats>
             <Label>
                 <div>
@@ -59,7 +62,7 @@ export default function MovieSeats() {
                     <p>Indisponível</p>
                 </div>
             </Label>
-            <Form id={id} setId={setId} name={name} setName={setName} cpf={cpf} setCpf={setCpf} form={form} setForm={setForm} />
+            <Form id={id} setId={setId} name={name} setName={setName} cpf={cpf} setCpf={setCpf} all={all} setAll={setAll} infos={infos} setInfos={setInfos}/>
             <Footer movieInfo={movieInfo} date={date} time={time} />
         </>
     )

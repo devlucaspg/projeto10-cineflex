@@ -1,11 +1,20 @@
-import { useState } from "react";
 import styled from "styled-components"
 
-export default function Seat({seats, id, setId}) {
+export default function Seat({seats, id, setId, selectedSeats, setSelectedSeats}) {
 
     function click () {
 
-        (!seats.isAvailable) ? window.alert('Escolha outro assento') : id.includes(seats.id) ? setId(id.filter((el) => el !== seats.id)) : setId(id => [...id, seats.id])
+        if (!seats.isAvailable){
+            return (
+                window.alert('Escolha outro assento') 
+            )
+        } else if (id.includes(seats.id)) {
+            setId(id.filter((el) => el !== seats.id));
+            setSelectedSeats(selectedSeats.filter((el) => el !== seats.name))
+        } else {
+            setId(id => [...id, seats.id])
+            setSelectedSeats(selectedSeats => [...selectedSeats, seats.name]);
+        }
     }
     
     if (seats.isAvailable === true) {

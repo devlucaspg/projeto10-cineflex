@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components"
 import axios from "axios";
 
-export default function Form({id, setId, name, setName, cpf, setCpf}) {
+export default function Form({id, name, setName, cpf, setCpf, infos, setInfos, all}) {
 
     const navigate = useNavigate();
 
@@ -18,18 +18,21 @@ export default function Form({id, setId, name, setName, cpf, setCpf}) {
             cpf: cpf,
         }
 
-        console.log(form)
+        //console.log(form)
 
         const promisse = axios.post(URL, form)
 
         promisse.then((res) => {
             console.log(res.data)
-            navigate("/Success");
+            navigate("/success");
         })
         
         promisse.catch((err) => {
             alert(err.response.data.message)
         })
+
+        setInfos(infos => [...infos, {movieTitle: all.movie.title, date: all.day.date, hour: all.name, seats: id, name: name, cpf: cpf}]);
+        
     }
 
     return (

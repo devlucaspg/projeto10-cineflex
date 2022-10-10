@@ -3,13 +3,14 @@ import styled from "styled-components"
 
 export default function Hour({hour, index}){
     
-    return(<>
-        <Link to={`/seats/${index.id}`}>
-            <Container>
-                <p>{hour}</p>
-            </Container>
-        </Link>
-    </>)
+    return(
+        <>
+            <Link to={`/seats/${index.id}`}>
+                <Container>
+                    <p>{hour}</p>
+                </Container>
+            </Link>
+        </>)
 }
 
 const Container = styled.div`
