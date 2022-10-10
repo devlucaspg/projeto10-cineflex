@@ -10,7 +10,7 @@ export default function Header() {
 
 const Container = styled.div`
     position: fixed;
-    top:0px;
+    top: 0px;
     left: 0px;
     margin-bottom: 67px;
     height: 67px;

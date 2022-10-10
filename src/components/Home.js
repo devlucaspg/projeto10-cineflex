@@ -26,7 +26,7 @@ export default function Home() {
                 <p>Selecione o filme</p>
             </Title>
             <ContainerMovies>
-                {moviesList.map((movie) => <Link to={`/sessions/${movie.id}`} key={movie.id}><Movie key={movie.id} movie={movie}/></Link>)}
+                {moviesList.map((movie) => <Link to={`/sessions/${movie.id}`} key={movie.id}><Movie movie={movie}/></Link>)}
             </ContainerMovies>
         </>
     );

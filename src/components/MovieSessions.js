@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import Session from "./Session";
+import Footer from "./Footer";
 
 export default function MovieSessions() {
     const [date, setDate] = useState([]);
@@ -30,12 +31,7 @@ export default function MovieSessions() {
             <Container>
                 {date.map((info) => <Session key={info.id} info={info} showTimes={info.showtimes}/>)} 
             </Container>
-            <Footer>
-                <div>
-                    <img src={movieInfo.posterURL} alt="Poster do filme"/>
-                    <p>{movieInfo.title}</p>
-                </div>
-            </Footer>     
+            <Footer  movieInfo={movieInfo} />
         </>
     )
 };
@@ -59,39 +55,4 @@ const Title = styled.div`
 
 const Container = styled.div`
     margin-bottom: 160px;
-`;
-
-const Footer = styled.div`
-    height: 117px;
-    width: 100%;
-    background-color: #DFE6ED;
-    display: flex;
-    position: fixed;
-    bottom: 0px;
-    z-index: 2;
-    
-    div {
-        margin: auto 10px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    img {
-        width: 64px;
-        border: 8px solid #FFFFFF;
-        border-radius: 2px;
-    }
-
-    p {
-        width: auto;
-        font-family: 'Roboto', sans-serif;
-        font-size: 26px;
-        font-weight: 400;
-        line-height: 30px;
-        letter-spacing: 0em;
-        text-align: left;
-        margin: auto 10px;
-
-    }
 `;
