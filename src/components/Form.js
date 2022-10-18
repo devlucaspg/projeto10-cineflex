@@ -43,14 +43,14 @@ export default function Form({id, name, setName, cpf, setCpf, infos, setInfos, a
                 <label htmlFor="cpf">CPF do comprador</label>
                 <input type="text" name="cpf" pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}" placeholder="Digite seu CPF.." id="cpf" value={cpf} onChange={(e) => setCpf(e.target.value)} required/>
                 <button type="submit">Reservar assento(s)</button>
-                </form>
+            </form>
         </Container>
     )
 };
 
 const Container = styled.div`
     width: 458px;
-    margin: 0 auto;
+    margin: 0 auto 150px auto;
 
     form {
         display: flex;
